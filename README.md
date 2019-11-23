@@ -1,3 +1,3 @@
-# libcrust - Shell Library
+# libcrust - Shell collection
 
-Library repository providing Shell utilities to other programs.
+Shell libraries, utilities, snippets, etc.
