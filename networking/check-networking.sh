@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# ANSI escape sequences
+# ANSI escape sequences ########################################################
 
 STYLE_ERROR='\x1b[1;31m'
 STYLE_OK='\x1b[1;32m'
 STYLE_RESET='\x1b[0m'
 
-# checking networking status
+# checking networking status ###################################################
 
 echo ""
 echo "===== checking networking status via Network Manager CLI (nmcli) ====="
@@ -22,7 +22,7 @@ else
     echo -e "${STYLE_OK}OK${STYLE_RESET}"
 fi
 
-# checking networking connectivity
+# checking networking connectivity #############################################
 
 echo ""
 echo "===== checking networking connectivity via Network Manager CLI (nmcli) ====="
@@ -38,10 +38,12 @@ else
     echo -e "${STYLE_OK}OK${STYLE_RESET}"
 fi
 
-# checking device status
+# checking device status #######################################################
 
 echo ""
 echo "===== checking the status of devices via Network Manager CLI (nmcli) ====="
 echo "'nmcli device status' :"
 nmcli device status
 echo "(to connect to wired network, type 'nmcli device connect eth0')"
+
+# END ##########################################################################

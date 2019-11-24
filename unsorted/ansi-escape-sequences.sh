@@ -1,14 +1,12 @@
-# ANSI escape sequences
+# ANSI escape sequences #
 
-# -------------------------------------------------------------------- #
-# variants of the escape code character:
+# variants of the escape code character: #######################################
 
 # shell                   (e) - (for "escape") : example ('\e[0m')
 # ASCII hex (hexadecimal) (x) - value (1b|1B)  : example ('\x1b[0m')
 # ASCII oct (octal)       (0) - value (33)     : example ('\033[0m')
 
-# -------------------------------------------------------------------- #
-# styled text
+# styled text ##################################################################
 
 # 0  -  Reset / Normal  -  all attributes off
 AE_RESET='\x1b[0m' # color off / text reset
@@ -81,8 +79,7 @@ AE_REVEAL='\x1b[20m'
 # 29  -  Not crossed out
 AE_NOT_CROSSED_OUT='\x1b[20m'
 
-# -------------------------------------------------------------------- #
-# colored text (foreground)
+# colored text (foreground) ####################################################
 
 # 30–37  -  Set foreground color  -  See color table below
 # 3/4 bit (8 colors)
@@ -102,8 +99,7 @@ AE_WHITE='\x1b[37m'
 # 39  -  Default foreground color  -  implementation defined (according to standard)
 AE_DEFAULT_FG_COLOR='\x1b[39m'
 
-# -------------------------------------------------------------------- #
-# colored text (background)
+# colored text (background) ####################################################
 
 # 40–47  -  Set background color  -  See color table below
 # 3/4 bit (8 colors)
@@ -123,8 +119,7 @@ AE_BG_WHITE='\x1b[47m'
 # 49  -  Default background color  -  implementation defined (according to standard)
 AE_DEFAULT_BG_COLOR='\x1b[49m'
 
-# -------------------------------------------------------------------- #
-# special styled text
+# special styled text ##########################################################
 
 # 51  -  Framed
 AE_FRAMED='\x1b[51m'
@@ -141,8 +136,7 @@ AE_NOT_FRAMED='\x1b[54m'
 # 55  -  Not overlined
 AE_NOT_OVERLINED='\x1b[55m'
 
-# -------------------------------------------------------------------- #
-# ideogram styles
+# ideogram styles ##############################################################
 
 # 60  -  ideogram underline or right side line  -  hardly ever supported
 AE_IG_UL_RL='\x1b[60m'
@@ -162,8 +156,7 @@ AE_IG_SM='\x1b[64m'
 # 65  -  ideogram attributes off  -  reset the effects of all of 60–64
 AE_IG_RESET='\x1b[60m'
 
-# -------------------------------------------------------------------- #
-# colored text - High Intensity (foreground)
+# colored text - High Intensity (foreground) ###################################
 
 # 90–97  -  Set bright foreground color  -  aixterm (not in standard)
 AE_HI_BLACK='\x1b[90m'
@@ -175,8 +168,7 @@ AE_HI_MAGENTA='\x1b[95m'  # magenta / purple
 AE_HI_CYAN='\x1b[96m'
 AE_HI_WHITE='\x1b[97m'
 
-# -------------------------------------------------------------------- #
-# colored text - High Intensity (background)
+# colored text - High Intensity (background) ###################################
 
 # 100–107  -  Set bright background color  -  aixterm (not in standard)
 AE_HI_BG_BLACK='\x1b[100m'
@@ -188,26 +180,28 @@ AE_HI_BG_MAGENTA='\x1b[105m'  # magenta / purple
 AE_HI_BG_CYAN='\x1b[106m'
 AE_HI_BG_WHITE='\x1b[107m'
 
-# -------------------------------------------------------------------- #
-# Bracketed paste mode
+# Bracketed paste mode #########################################################
 
-# When a terminal is running in bracketed paste mode, text pasted into the terminal will be surrounded by the sequence ESC [200~ and ESC [201~. This indicates to programs that support it that the text within was pasted and should not be treated specially (for example, as command keypresses in vim).[14]
+# When a terminal is running in bracketed paste mode, text pasted into the
+# terminal will be surrounded by the sequence ESC [200~ and ESC [201~.
+# This indicates to programs that support it that the text within was pasted and
+# should not be treated specially (for example, as command keypresses in vim).[14]
 
 # The sequence ESC [?2004h echoed to a terminal enables bracketed paste mode, and ESC [?2004l disables it.
 
 AE_ENABLE_BRACKETED_PASTE_MODE='\x1b[?2004h'
 AE_DISABLE_BRACKETED_PASTE_MODE='\x1b[?2004l'
 
-# -------------------------------------------------------------------- #
-# "ANSI-Rainbow"
+# "ANSI-Rainbow" ###############################################################
 
 rainbow() {
     for (( i = 30; i < 38; i++ )); do echo -e "\033[0;"$i"m Normal: (0;$i); \033[1;"$i"m Light: (1;$i)"; done
 }
 
-# -------------------------------------------------------------------- #
-# show all colors
+# show all colors ##############################################################
 
 color_list() {
     for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done
 }
+
+# END ##########################################################################

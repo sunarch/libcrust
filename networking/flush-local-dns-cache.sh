@@ -5,5 +5,3 @@
 
 echo "flushing local dns cache"
 sudo systemd-resolve --flush-caches
-
-
